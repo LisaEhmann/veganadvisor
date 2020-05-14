@@ -3,9 +3,12 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Header. -->
+        <item name="colorPrimary">@color/blau</item>
+        <!-- Zeile über Header mit Akku, Uhrzeit etc.. -->
+        <item name="colorPrimaryDark">@color/blau</item>
+        <!-- noch nicht rausgefunden -->
+        <item name="colorAccent">@color/eierfarbe</item>
     </style>
 
 </resources>
