@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_favoriten:
                             selectedFragment = new FavoritesFragment();
                             break;
+                        case R.id.nav_suchen:
+                            selectedFragment = new SuchenFragment();
+                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
