@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+    android:title="Startseite"
+    android:id="@+id/startseite"
+    />
+    <item
+        android:title="Favoriten"
+        android:id="@+id/favoriten"
+        />
+    <item
+        android:title="Profil"
+        android:id="@+id/profil"
+        />
+    <item
+        android:title="Einstellungen"
+        android:id="@+id/einstellungen"
+        />
+    <item
+        android:title="Suche"
+        android:id="@+id/suche"
+        android:icon="@drawable/ic_search"
+        app:showAsAction="always"
+        />
+
+</menu>
