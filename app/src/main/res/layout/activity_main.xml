@@ -21,4 +21,17 @@
         android:layout_centerVertical="true"
         android:textColor="@color/grün_hell"/>
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="@color/blau"
+        android:outlineAmbientShadowColor="@color/eierfarbe"
+
+        android:outlineSpotShadowColor="@color/eierfarbe"
+        app:itemIconTint="@color/eierfarbe"
+        app:itemTextColor="@color/eierfarbe"
+        app:menu="@menu/bottem_navigation" />
+
 </RelativeLayout>
