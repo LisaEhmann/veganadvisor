@@ -9,6 +9,12 @@
         <item name="colorPrimaryDark">@color/blau</item>
         <!-- noch nicht rausgefunden -->
         <item name="colorAccent">@color/eierfarbe</item>
+        <item name="android:fontFamily">@font/font_content</item>
+    </style>
+
+    <style name="ToolbarThemeOverlay" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="fontFamily">@font/font_header</item>
+
     </style>
 
 </resources>

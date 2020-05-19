@@ -9,6 +9,8 @@
     app:logo="@drawable/ic_burgermenu"
     app:title="@string/app_name"
     app:titleMarginStart="40dp"
-    app:titleTextColor="@color/eierfarbe">
+    app:titleTextColor="@color/eierfarbe"
+    android:theme="@style/ToolbarThemeOverlay"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
 </androidx.appcompat.widget.Toolbar>
