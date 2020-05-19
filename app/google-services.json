@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1008862938787",
+    "firebase_url": "https://veganadvisor-levn.firebaseio.com",
+    "project_id": "veganadvisor-levn",
+    "storage_bucket": "veganadvisor-levn.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008862938787:android:d63af0f7b4f229360ea116",
+        "android_client_info": {
+          "package_name": "com.example.veganadvisor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1008862938787-jj7v6111965mijfo1tnrrqev2teupv6q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.veganadvisor",
+            "certificate_hash": "6c0645de5cce01911e1b66543857c291dfe688a4"
+          }
+        },
+        {
+          "client_id": "1008862938787-jcnfjcba6jlalf2e7cbheli38c2lu8r7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVIciDCF11JW57sa7eFgPBAH2dHG3aZhY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1008862938787-jcnfjcba6jlalf2e7cbheli38c2lu8r7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
