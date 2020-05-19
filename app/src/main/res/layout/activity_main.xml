@@ -25,6 +25,13 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottem_navigation"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Fragment"
+        android:textSize="30dp"
+        android:layout_centerInParent="true"/>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottem_navigation"
