@@ -18,11 +18,6 @@
         android:title="Einstellungen"
         android:id="@+id/menu_einstellungen"
         />
-    <item
-        android:title="Suche"
-        android:id="@+id/menu_suche"
-        android:icon="@drawable/ic_search"
-        app:showAsAction="always"
-        />
+
 
 </menu>

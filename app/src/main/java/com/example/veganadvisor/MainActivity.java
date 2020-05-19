@@ -70,8 +70,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "You clicked Profil", Toast.LENGTH_SHORT);
         } else if (id == R.id.menu_einstellungen){
             Toast.makeText(getApplicationContext(), "You clicked Einstellungen", Toast.LENGTH_SHORT);
-        } else if (id == R.id.menu_suche){
-            Toast.makeText(getApplicationContext(), "You clicked Suche", Toast.LENGTH_SHORT);
         }
         return true;
     }
