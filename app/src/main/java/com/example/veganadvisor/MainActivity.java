@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toast lisa = Toast.makeText(getApplicationContext(), "Hallo Lisa, ich hab dich lieb.", Toast.LENGTH_LONG);
-        lisa.setGravity(Gravity.TOP, 3, 20);
+        lisa.setGravity(Gravity.CENTER, 0, 0);
         lisa.show();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -62,15 +62,15 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.startseite){
+        if (id == R.id.menu_startseite){
             Toast.makeText(getApplicationContext(), "You clicked Startseite", Toast.LENGTH_SHORT);
-        } else if (id == R.id.favoriten){
+        } else if (id == R.id.menu_favoriten){
             Toast.makeText(getApplicationContext(), "You clicked Favoriten", Toast.LENGTH_SHORT);
-        } else if (id == R.id.profil){
+        } else if (id == R.id.menu_profil){
             Toast.makeText(getApplicationContext(), "You clicked Profil", Toast.LENGTH_SHORT);
-        } else if (id == R.id.einstellungen){
+        } else if (id == R.id.menu_einstellungen){
             Toast.makeText(getApplicationContext(), "You clicked Einstellungen", Toast.LENGTH_SHORT);
-        } else if (id == R.id.suche){
+        } else if (id == R.id.menu_suche){
             Toast.makeText(getApplicationContext(), "You clicked Suche", Toast.LENGTH_SHORT);
         }
         return true;

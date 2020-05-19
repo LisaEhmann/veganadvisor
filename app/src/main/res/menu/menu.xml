@@ -4,23 +4,23 @@
 
     <item
     android:title="Startseite"
-    android:id="@+id/startseite"
+    android:id="@+id/menu_startseite"
     />
     <item
         android:title="Favoriten"
-        android:id="@+id/favoriten"
+        android:id="@+id/menu_favoriten"
         />
     <item
         android:title="Profil"
-        android:id="@+id/profil"
+        android:id="@+id/menu_profil"
         />
     <item
         android:title="Einstellungen"
-        android:id="@+id/einstellungen"
+        android:id="@+id/menu_einstellungen"
         />
     <item
         android:title="Suche"
-        android:id="@+id/suche"
+        android:id="@+id/menu_suche"
         android:icon="@drawable/ic_search"
         app:showAsAction="always"
         />
