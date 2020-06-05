@@ -26,11 +26,12 @@
         android:layout_above="@id/bottem_navigation"/>
 
     <TextView
+        android:id="@+id/example"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:text="Main Fragment"
-        android:textSize="30dp"
-        android:layout_centerInParent="true"/>
+        android:textSize="30dp" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
