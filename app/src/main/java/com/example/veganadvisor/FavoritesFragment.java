@@ -1,9 +1,11 @@
 package com.example.veganadvisor;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,11 +21,22 @@ import com.google.firebase.database.ValueEventListener;
 public class FavoritesFragment extends Fragment {
 
     @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
+    private Button button;
+
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
+        DatabaseReference myRef = database.getReference().child("restaurant").child("id1").child("adress");
+        final DatabaseReference push = database.getReference().child("restaurant").child("id1").child("name");
+
+        View view = inflater.inflate(R.layout.fragment_favoriten, container, false);
+        button = (Button) view.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+                push.setValue("Knopf") ;
+            }
+        });
 
         View v = inflater.inflate(R.layout.fragment_favoriten, container, false);
         final TextView textView = (TextView)v.findViewById(R.id.example);
@@ -38,7 +51,12 @@ public class FavoritesFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-
         return v;
     }
-}
+
+
+
+
+
+    }
+
