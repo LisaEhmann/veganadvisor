@@ -22,7 +22,6 @@ public class FavoritesFragment extends Fragment {
 
     @Nullable
 
-    private Button button;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,21 +42,6 @@ public class FavoritesFragment extends Fragment {
         });
         return v;
     }
-
-
-    public void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-
-
-        final DatabaseReference push = database.getReference().child("restaurant").child("id1").child("name");
-        button = (Button) getView().findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view){
-                push.setValue("Hallo") ;
-            }
-        });
-    }
-
 
     }
 
