@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+
     <item
-        android:id="@+id/nav_suchen"
+        android:id="@+id/bottemNav_suchen"
         android:icon="@drawable/ic_search"
         android:title="Suchen"/>
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/bottemNav_home"
         android:icon="@drawable/ic_home"
         android:title="Startseite"/>
 
     <item
-        android:id="@+id/nav_favoriten"
+        android:id="@+id/bottemNav_favoriten"
         android:icon="@drawable/ic_star"
         android:title="Favoriten"/>
 

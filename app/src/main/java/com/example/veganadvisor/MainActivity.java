@@ -1,9 +1,17 @@
 package com.example.veganadvisor;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import android.Manifest;
 import android.os.Bundle;
@@ -13,65 +21,80 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    Toolbar toolbar;
+    BottomNavigationView bottemNav;
+    NavigationView navigationView;
+    NavController navController;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast lisa = Toast.makeText(getApplicationContext(), "Hallo Lisa, ich hab dich lieb.", Toast.LENGTH_LONG);
-        lisa.setGravity(Gravity.CENTER, 0, 0);
-        lisa.show();
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        BottomNavigationView bottemNav = findViewById(R.id.bottem_navigation);
-        bottemNav.setOnNavigationItemSelectedListener(navListener);
-    }
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
-                    switch (item.getItemId()) {
-                        case R.id.nav_home:
-                            selectedFragment = new HomeFragment();
-                            break;
-                        case R.id.nav_favoriten:
-                            selectedFragment = new FavoritesFragment();
-                            break;
-                        case R.id.nav_suchen:
-                            selectedFragment = new SuchenFragment();
-                            break;
-                    }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            selectedFragment).commit();
-                    return true;
-                }
-            };
+        drawerLayout = findViewById(R.id.drawer);
+        navigationView = findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(this);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+        actionBarDrawerToggle.syncState();
+
+        //load default fragment
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.container_fragment, new HomeFragment());
+        fragmentTransaction.commit();
+
+        //navController = Navigation.findNavController(this, R.id.container_fragment);
+        //bottemNav = bottemNav.findViewById(R.id.bottomNavigationView);
+        //NavigationUI.setupWithNavController(bottemNav, navController);
+
+
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
 
-        if (id == R.id.menu_startseite){
-            Toast.makeText(getApplicationContext(), "You clicked Startseite", Toast.LENGTH_SHORT);
-        } else if (id == R.id.menu_favoriten){
-            Toast.makeText(getApplicationContext(), "You clicked Favoriten", Toast.LENGTH_SHORT);
-        } else if (id == R.id.menu_profil){
-            Toast.makeText(getApplicationContext(), "You clicked Profil", Toast.LENGTH_SHORT);
-        } else if (id == R.id.menu_einstellungen){
-            Toast.makeText(getApplicationContext(), "You clicked Einstellungen", Toast.LENGTH_SHORT);
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        drawerLayout.closeDrawer(GravityCompat.START);
+        if (item.getItemId() == R.id.menu_startseite){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new HomeFragment());
+            fragmentTransaction.commit();
+        } else if (item.getItemId() == R.id.menu_favoriten){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new FavoritesFragment());
+            fragmentTransaction.commit();
+        } else if (item.getItemId() == R.id.menu_profil){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new ProfilFragment());
+            fragmentTransaction.commit();
+        } else if (item.getItemId() == R.id.menu_einstellungen){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new EinstellungenFragment());
+            fragmentTransaction.commit();
         }
+
         return true;
     }
+
+
+
+
+
 }

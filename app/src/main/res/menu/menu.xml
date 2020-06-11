@@ -2,22 +2,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-    android:title="Startseite"
-    android:id="@+id/menu_startseite"
-    />
-    <item
-        android:title="Favoriten"
-        android:id="@+id/menu_favoriten"
-        />
-    <item
-        android:title="Profil"
-        android:id="@+id/menu_profil"
-        />
-    <item
-        android:title="Einstellungen"
-        android:id="@+id/menu_einstellungen"
-        />
+    <item android:title="Restaurants">
+        <menu>
+            <item
+                android:id="@+id/menu_startseite"
+                android:icon="@drawable/ic_home"
+                android:title="Startseite" />
+            <item
+                android:id="@+id/menu_favoriten"
+                android:icon="@drawable/ic_star"
+                android:title="Favoriten" />
+        </menu>
+    </item>
+
+    <item android:title="Einstellungen">
+        <menu>
+            <item
+                android:id="@+id/menu_profil"
+                android:icon="@drawable/ic_person"
+                android:title="Profil" />
+            <item
+                android:id="@+id/menu_einstellungen"
+                android:icon="@drawable/ic_settings"
+                android:title="Einstellungen" />
+        </menu>
+    </item>
+
 
 
 </menu>
