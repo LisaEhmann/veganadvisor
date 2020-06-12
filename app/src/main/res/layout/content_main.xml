@@ -8,25 +8,11 @@
     <FrameLayout
         android:id="@+id/container_fragment"
         android:layout_width="match_parent"
-        android:layout_height="510dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView" />
+        android:layout_height="570dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="0dp"
-        android:background="@color/blau"
-
-        app:itemIconTint="@color/eierfarbe"
-        app:itemTextColor="@color/eierfarbe"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottem_navigation" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

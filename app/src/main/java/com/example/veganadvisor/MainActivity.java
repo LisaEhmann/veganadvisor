@@ -57,10 +57,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.add(R.id.container_fragment, new HomeFragment());
         fragmentTransaction.commit();
 
-        //navController = Navigation.findNavController(this, R.id.container_fragment);
-        //bottemNav = bottemNav.findViewById(R.id.bottomNavigationView);
-        //NavigationUI.setupWithNavController(bottemNav, navController);
-
 
     }
 
