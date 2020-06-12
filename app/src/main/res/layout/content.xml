@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="280dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_eierfarbe"
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/rounded_grey"
+        android:bottomLeftRadius="6dp"
+        android:bottomRightRadius="6dp"
+        android:topLeftRadius="6dp"
+        android:topRightRadius="6dp"
+        tools:srcCompat="@tools:sample/avatars"
+        />
+
+    <TextView
+        android:id="@+id/content_restaurantname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/lato"
+        android:text="Restaurantname"
+        android:textColor="#1A936F"
+        android:textSize="24dp" />
+
+    <TextView
+        android:id="@+id/content_restaurantdescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginRight="10dp"
+        android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore "
+        android:textColor="#88D498"
+        android:textSize="18dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="135dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/round_button">
+        </ImageButton>
+
+</RelativeLayout>
