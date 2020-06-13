@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +40,10 @@ public class FavoritesFragment extends Fragment {
     @Override
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+
+
+
         favoriten_content = inflater.inflate(R.layout.fragment_favoriten, container, false);
 
         recycler_favorite_fragment = (RecyclerView) favoriten_content.findViewById(R.id.recycler_favorite_fragment);
@@ -50,7 +56,6 @@ public class FavoritesFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-
 
         FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<restaurant>().setQuery(restaurantRef, restaurant.class).build();
         final FirebaseRecyclerAdapter<restaurant, restaurantViewHolder> adapter = new FirebaseRecyclerAdapter<restaurant, restaurantViewHolder>(options) {

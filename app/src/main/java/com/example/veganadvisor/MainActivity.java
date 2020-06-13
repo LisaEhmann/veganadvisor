@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //load default fragment
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.container_fragment, new HomeFragment());
+        fragmentTransaction.add(R.id.container_fragment, new FavoritesFragment());
         fragmentTransaction.commit();
 
     }
@@ -71,11 +71,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         drawerLayout.closeDrawer(GravityCompat.START);
         if (item.getItemId() == R.id.menu_startseite){
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new HomeFragment());
-            fragmentTransaction.commit();
-        } else if (item.getItemId() == R.id.menu_favoriten){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new FavoritesFragment());
@@ -90,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new EinstellungenFragment());
             fragmentTransaction.commit();
+            toolbar.setTitle("Einstellungen");
         } else if (item.getItemId() == R.id.menu_detailRestaurant){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
