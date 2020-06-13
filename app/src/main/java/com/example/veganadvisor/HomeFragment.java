@@ -16,7 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeFragment extends Fragment {
 
-    BottomNavigationView bottemNav;
+
 
     @Nullable
     @Override

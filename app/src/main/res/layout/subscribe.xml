@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grün_hell" >
+
+    <TextView
+        android:id="@+id/subscribe_restaurantname"
+        android:layout_width="179dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Restaurantname"
+        android:textColor="@color/grün_dunkel"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/subscribe_subscribe"
+        android:layout_width="match_parent"
+        android:layout_height="280dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/rounded_grey"
+        android:ems="10"
+        android:gravity="center_horizontal|center_vertical"
+        android:inputType="textPersonName"
+        android:text="Geben Sie Ihre Bewertung ein."
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rounded_green_dark"
+        android:text="Absenden"
+        android:textAllCaps="false"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

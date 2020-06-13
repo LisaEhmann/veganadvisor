@@ -9,10 +9,8 @@
     android:orientation="vertical"
     android:visibility="visible">
 
-
-    <TextView
-        android:id="@+id/example"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_favorite_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_height="match_parent" />
 </LinearLayout>
