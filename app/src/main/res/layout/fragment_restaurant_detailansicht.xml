@@ -1,7 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/rounded_eierfarbe">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/rounded_grey"
+        android:bottomLeftRadius="6dp"
+        android:bottomRightRadius="6dp"
+        android:topLeftRadius="6dp"
+        android:topRightRadius="6dp"
+        />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/content_restaurantname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="@string/restaurantname"
+        android:textColor="@color/grün_dunkel"
+        android:textSize="24dp" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton_bewertung"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/rechteck_button"
+        app:srcCompat="@drawable/ic_star_rechteck_btn_foreground" />
+
+    <ImageButton
+        android:id="@+id/imageButton_edit"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rechteck_button"
+        app:srcCompat="@drawable/ic_pencil_rechteck_btn_foreground" />
+
+    <TextView
+        android:id="@+id/adresse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="Adresse"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/input_adresse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="290dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/lato"
+        android:text="Hier kommt die Adresse rein"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/oeffnungszeiten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="Öffnungszeiten"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/input_oeffnungszeiten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="370dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/lato"
+        android:text="Hier kommen die Öffnungszeiten hin"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/bewertungen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="@font/lato_bold"
+        android:text="Bewertungen"
+        android:textColor="@color/grün_dunkel"
+        android:textSize="20dp" />
+
+
+</RelativeLayout>

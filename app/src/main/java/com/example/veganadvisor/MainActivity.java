@@ -90,6 +90,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new EinstellungenFragment());
             fragmentTransaction.commit();
+        } else if (item.getItemId() == R.id.menu_detailRestaurant){
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new DetailRestaurantFragment());
+            fragmentTransaction.commit();
         }
 
         return true;
