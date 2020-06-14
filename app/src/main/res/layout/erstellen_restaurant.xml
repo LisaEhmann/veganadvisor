@@ -65,7 +65,6 @@
             android:textColor="@color/black"
             />
 
-
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
@@ -78,9 +77,6 @@
             android:outlineSpotShadowColor="@color/grün_dunkel"
             android:text="Absenden"
             android:textColor="@color/white" />
-
-
-
 
     </androidx.cardview.widget.CardView>
 
