@@ -18,56 +18,70 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-
-        <TextView
-            android:id="@+id/erstellen_restaurantname"
+        <EditText
+            android:id="@+id/edit_restaurant_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:fontFamily="@font/lato_bold"
-            android:text="Bewertung"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Hier Restarantname eingeben"
             android:textColor="@color/grün_dunkel"
-            android:textSize="24dp" />
+            android:fontFamily="@font/lato_bold"
+            android:textSize="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            />
+
+        <EditText
+            android:id="@+id/edit_adress"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Geben Sie hier die Adresse ein"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black"/>
 
         <RatingBar
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
-            />
+            android:layout_marginTop="120dp" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/edit_bewertung"
             android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="110dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="100dp"
             android:ems="10"
             android:inputType="text"
-            android:text="Geben Sie hier Ihre Bewertung ein. " />
+            android:text="Geben Sie hier die Bewertung ein"
+            android:layout_marginTop="170dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/black"
+            />
+
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="270dp"
+            android:layout_marginRight="20dp"
             android:backgroundTint="@color/grün_dunkel"
             android:fontFamily="@font/lato"
             android:outlineSpotShadowColor="@color/grün_dunkel"
             android:text="Absenden"
-            android:textColor="@color/white"
-            android:layout_marginTop="330dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            />
+            android:textColor="@color/white" />
+
+
 
 
     </androidx.cardview.widget.CardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
