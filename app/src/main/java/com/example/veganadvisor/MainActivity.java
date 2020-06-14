@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout = findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navigationView);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setBackgroundColor(getResources().getColor(R.color.grün_dunkel));
 
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
@@ -63,24 +64,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container_fragment, new FavoritesFragment());
         fragmentTransaction.commit();
-
     }
 
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
         drawerLayout.closeDrawer(GravityCompat.START);
         if (item.getItemId() == R.id.menu_startseite){
+            navigationView.setCheckedItem(R.id.menu_startseite);
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new FavoritesFragment());
             fragmentTransaction.commit();
+            toolbar.setTitle("VeganAdvisor");
         } else if (item.getItemId() == R.id.menu_profil){
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new ProfilFragment());
             fragmentTransaction.commit();
+            toolbar.setTitle("Profil");
         } else if (item.getItemId() == R.id.menu_einstellungen){
+            navigationView.setCheckedItem(R.id.menu_einstellungen);
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new EinstellungenFragment());
