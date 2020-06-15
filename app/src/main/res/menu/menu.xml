@@ -30,15 +30,5 @@
         </menu>
     </item>
 
-    <item android:title="Tests">
-        <menu>
-            <item
-                android:id="@+id/menu_detailRestaurant"
-                android:title="Detailansicht Restaurant" />
-
-        </menu>
-    </item>
-
-
 
 </menu>

@@ -7,19 +7,19 @@ public class restaurant {
     private String Adresse;
     private String opening;
     private String beschreibung;
-    private String smiley;
+
 
 
     public restaurant() {
     }
 
-    public restaurant(String ID, String Name, String Adresse, String Opening, String Beschreibung,  String Smiley) {
+    public restaurant(String ID, String Name, String Adresse, String Opening, String Beschreibung) {
         this.ID = ID;
         this.Name = Name;
         this.Adresse = Adresse;
         this.opening = Opening;
         this.beschreibung = Beschreibung;
-        this.smiley = Smiley;
+
     }
 
     public String getID() {
@@ -42,9 +42,6 @@ public class restaurant {
         return beschreibung;
     }
 
-    public String getSmiley() {
-        return smiley;
-    }
 
 
     public void setID(String ID) {
@@ -67,8 +64,6 @@ public class restaurant {
         this.beschreibung = beschreibung;
     }
 
-    public void setSmiley(String smiley) {
-        this.smiley = smiley;
-    }
+
 
 }
