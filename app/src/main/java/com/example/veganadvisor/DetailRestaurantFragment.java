@@ -6,11 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.RatingBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.ScrollingView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,6 +31,7 @@ import java.util.ArrayList;
 public class DetailRestaurantFragment extends Fragment {
 
     private RecyclerView recycler_restaurant_detail;
+    private ScrollView scrollView;
     private View restaurant_detail_content;
     private DatabaseReference ratingRef;
     private String restaurantName;
@@ -89,7 +92,6 @@ public class DetailRestaurantFragment extends Fragment {
 
             }
         });
-
 
         recycler_restaurant_detail = (RecyclerView) restaurant_detail_content.findViewById(R.id.recycler_restaurant_detail);
 
