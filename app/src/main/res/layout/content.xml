@@ -53,28 +53,13 @@
             android:textSize="18dp" />
 
         <ImageButton
-            android:id="@+id/content_btn_pencil"
+            android:id="@+id/content_btn_arrow"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="295dp"
-            android:layout_marginTop="127dp"
-            android:background="@drawable/round_button"
-            android:src="@drawable/ic_pencil_content_btn_foreground"></ImageButton>
-
-        <ImageButton
-            android:id="@+id/content_btn_star"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentStart="false"
-            android:layout_alignParentBottom="false"
-            android:layout_centerVertical="false"
-            android:layout_marginLeft="260dp"
-            android:layout_marginTop="127dp"
-            android:adjustViewBounds="false"
-            android:background="@drawable/round_button"
-            android:src="@drawable/ic_star_content_btn_foreground"></ImageButton>
+            android:layout_marginTop="250dp"
+            android:background="@drawable/roud_button_dark"
+            android:src="@drawable/ic_arrow_foreground" />
 
 
     </androidx.cardview.widget.CardView>

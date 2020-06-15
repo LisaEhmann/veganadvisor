@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
+//    Toolbar toolbar;
     Toolbar toolbar;
     NavigationView navigationView;
     NavController navController;
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.commit();
             toolbar.setTitle("VeganAdvisor");
         } else if (item.getItemId() == R.id.menu_profil){
+            navigationView.setCheckedItem(R.id.menu_profil);
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new ProfilFragment());
@@ -91,11 +93,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment, new EinstellungenFragment());
             fragmentTransaction.commit();
             toolbar.setTitle("Einstellungen");
-        } else if (item.getItemId() == R.id.menu_detailRestaurant){
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new DetailRestaurantFragment());
-            fragmentTransaction.commit();
         }
 
         return true;

@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,8 +41,6 @@ public class FavoritesFragment extends Fragment {
     @Override
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-
 
 
         favoriten_content = inflater.inflate(R.layout.fragment_favoriten, container, false);
@@ -89,7 +88,7 @@ public class FavoritesFragment extends Fragment {
                             r.setOpening(ds.child("Opening").getValue(String.class));
                             r.setAdresse(ds.child("Adresse").getValue(String.class));
                             r.setBeschreibung(ds.child("Beschreibung").getValue(String.class));
-                            r.setSmiley(ds.child("Smiley").getValue(String.class));
+
 
                             testrestaurants.add(r);
                         }
@@ -100,6 +99,31 @@ public class FavoritesFragment extends Fragment {
 
                         holder.content_restaurantname.setText(testrestaurants.get(position).getName());
                         holder.content_restaurantdescription.setText(testrestaurants.get(position).getBeschreibung());
+
+                        holder.content_btn_arrow.setOnClickListener(new View.OnClickListener(){
+                            @Override
+                            public void onClick(View v){
+                                Bundle bundle = new Bundle();
+                                bundle.putString("ID", testrestaurants.get(position).getID());
+                                bundle.putString("Name", testrestaurants.get(position).getName());
+                                bundle.putString("Opening", testrestaurants.get(position).getOpening());
+                                bundle.putString("Adresse", testrestaurants.get(position).getAdresse());
+                                bundle.putString("Beschreibung", testrestaurants.get(position).getBeschreibung());
+
+                                DetailRestaurantFragment detailRestaurantFragment = new DetailRestaurantFragment();
+
+                                detailRestaurantFragment.setArguments(bundle);
+                                FragmentManager manager = getFragmentManager();
+                                manager.beginTransaction().replace(R.id.container_fragment, detailRestaurantFragment).commit();
+
+                                Toolbar toolbar = ((MainActivity)getActivity()).toolbar;
+                                toolbar.setTitle(testrestaurants.get(position).getName());
+
+                            }
+
+
+
+                        });
 
                     }
 
@@ -125,7 +149,7 @@ public class FavoritesFragment extends Fragment {
         TextView content_restaurantname, content_restaurantdescription;
         ImageView content_placeholderimage;
 
-        ImageButton content_btn_pencil,content_btn_star;
+        ImageButton content_btn_arrow;
 
         public restaurantViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -134,8 +158,7 @@ public class FavoritesFragment extends Fragment {
 
             content_placeholderimage = itemView.findViewById(R.id.content_placeholderimage);
 
-            content_btn_pencil = itemView.findViewById(R.id.content_btn_pencil);
-            content_btn_star = itemView.findViewById(R.id.content_btn_star);
+            content_btn_arrow = itemView.findViewById(R.id.content_btn_arrow);
 
 
         }
