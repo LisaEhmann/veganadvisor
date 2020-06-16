@@ -90,7 +90,7 @@ public class DetailRestaurantFragment extends Fragment {
         });
         recycler_restaurant_detail = (RecyclerView) restaurant_detail_content.findViewById(R.id.recycler_restaurant_detail);
 
-        ratingRef = FirebaseDatabase.getInstance().getReference().child("rating");
+        ratingRef = FirebaseDatabase.getInstance().getReference().child("rating").child(restaurantID);
 
         return restaurant_detail_content;
     }
@@ -104,12 +104,14 @@ public class DetailRestaurantFragment extends Fragment {
             protected void onBindViewHolder(@NonNull final ratingViewHolder holder, final int position, @NonNull rating model) {
 
                 final ArrayList<rating> testrating = new ArrayList<>();
-                final ArrayList<rating> ausgabe = new ArrayList<>();
+//                final ArrayList<rating> ausgabe = new ArrayList<>();
 
                 ratingRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()){
+
+//                            if(restaurantID.equals(ds.child("rID").getValue(String.class))) {
 
                                 rating r = new rating();
 
@@ -119,16 +121,17 @@ public class DetailRestaurantFragment extends Fragment {
                                 r.setValue(ds.child("value").getValue(Float.class));
 
                                 testrating.add(r);
+//                            }
                         }
-//                        if(restaurantName.equals(testrating.get(position).getrID()))
-//                        {
-//                            ausgabe.add(testrating.get(position));
-//                        }
-                        holder.content_bewertung.setText(testrating.get(position).getuID());
-                        holder.content_bewertung_star.setRating(testrating.get(position).getValue());
-                        holder.content_freitextBewertung.setText(testrating.get(position).getText());
-                    }
 
+//                        for (rating r : testrating){
+
+                            holder.content_bewertung.setText(testrating.get(position).getuID());
+                            holder.content_bewertung_star.setRating(testrating.get(position).getValue());
+                            holder.content_freitextBewertung.setText(testrating.get(position).getText());
+
+//                        }
+                    }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 

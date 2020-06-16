@@ -37,14 +37,14 @@ public class erstellenRating extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rating = inflater.inflate(R.layout.erstellen_bewertung, container, false);
 
-        ratingRef = FirebaseDatabase.getInstance().getReference().child("rating");
-
         Bundle bundle = this.getArguments();
         restaurantName = bundle.getString("Name");
         restaurantAdresse = bundle.getString("Adresse");
         restaurantOpening = bundle.getString("Opening");
         restaurantBeschreibung = bundle.getString("Beschreibung");
         restaurantID = bundle.getString("ID");
+
+        ratingRef = FirebaseDatabase.getInstance().getReference().child("rating").child(restaurantID);
 
         //Elemente finden
         erstellen_restaurantname = rating.findViewById(R.id.erstellen_restaurantname);
@@ -59,11 +59,12 @@ public class erstellenRating extends Fragment {
             @Override
             public void onClick(View v) {
 
-                newrating.setrID(restaurantID);
                 newrating.setText(freitext_rating.getText().toString());
                 newrating.setValue(ratingBar.getRating());
 
                if(!newrating.getrID().equals("") && !newrating.getText().equals("") && newrating.getValue() != 0){
+
+                   ratingRef.push().setValue(newrating);
 
                     Bundle bundle = new Bundle();
                     bundle.putString("Name", restaurantName);
@@ -71,11 +72,6 @@ public class erstellenRating extends Fragment {
                     bundle.putString("Adresse", restaurantAdresse);
                     bundle.putString("Beschreibung", restaurantBeschreibung);
                     bundle.putString("ID", restaurantID);
-
-                    ratingRef = ratingRef.child("ID3");
-                    ratingRef.child("rID").setValue(newrating.getrID());
-                    ratingRef.child("text").setValue(newrating.getText());
-                    ratingRef.child("value").setValue(ratingBar.getRating());
 
                     DetailRestaurantFragment detailRestaurantFragment = new DetailRestaurantFragment();
                     detailRestaurantFragment.setArguments(bundle);
