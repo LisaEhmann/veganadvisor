@@ -42,6 +42,7 @@ public class DetailRestaurantFragment extends Fragment {
     private ImageButton btn_subscribe;
     private TextView content_restaurantname, input_adresse, input_oeffnungszeiten, input_Beschreibung;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
