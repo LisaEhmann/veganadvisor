@@ -127,7 +127,7 @@ public class DetailRestaurantFragment extends Fragment {
                                 testrating.add(r);
                         }
 
-                        holder.content_bewertung.setText(testrating.get(position).getrID());
+                        holder.content_bewertung.setText(testrating.get(position).getuID());
                         holder.content_bewertung_star.setRating(testrating.get(position).getValue());
                         holder.content_freitextBewertung.setText(testrating.get(position).getText());
                     }
