@@ -62,7 +62,7 @@ public class erstellenRating extends Fragment {
                 newrating.setText(freitext_rating.getText().toString());
                 newrating.setValue(ratingBar.getRating());
 
-               if(!newrating.getrID().equals("") && !newrating.getText().equals("") && newrating.getValue() != 0){
+               if(!newrating.getText().equals("") && newrating.getValue() != 0){
 
                    ratingRef.push().setValue(newrating);
 
