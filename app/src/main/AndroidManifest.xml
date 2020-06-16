@@ -41,7 +41,6 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">
-
         </activity>
         //End of MainActivity
 
