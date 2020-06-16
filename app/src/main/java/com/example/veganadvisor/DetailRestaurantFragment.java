@@ -42,14 +42,10 @@ public class DetailRestaurantFragment extends Fragment {
     private ImageButton btn_subscribe;
     private TextView content_restaurantname, input_adresse, input_oeffnungszeiten, input_Beschreibung;
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         restaurant_detail_content = inflater.inflate(R.layout.fragment_restaurant_detailansicht, container,false);
-
-
 
         Bundle bundle = this.getArguments();
         restaurantName = bundle.getString("Name");
@@ -64,7 +60,6 @@ public class DetailRestaurantFragment extends Fragment {
         input_oeffnungszeiten = restaurant_detail_content.findViewById(R.id.input_oeffnungszeiten);
         input_Beschreibung = restaurant_detail_content.findViewById(R.id.input_Beschreibung);
         btn_subscribe = restaurant_detail_content.findViewById(R.id.imageButton_edit);
-
 
         //Werte setzen
         content_restaurantname.setText(restaurantName);
@@ -81,6 +76,7 @@ public class DetailRestaurantFragment extends Fragment {
                 bundle.putString("Opening", restaurantOpening);
                 bundle.putString("Adresse", restaurantAdresse);
                 bundle.putString("Beschreibung", restaurantBeschreibung);
+                bundle.putString("ID", restaurantID);
 
                 erstellenRating erstellenrating = new erstellenRating();
                 erstellenrating.setArguments(bundle);
@@ -89,10 +85,8 @@ public class DetailRestaurantFragment extends Fragment {
 
                 Toolbar toolbar = ((MainActivity)getActivity()).toolbar;
                 toolbar.setTitle("Bewertung abgeben");
-
             }
         });
-
         recycler_restaurant_detail = (RecyclerView) restaurant_detail_content.findViewById(R.id.recycler_restaurant_detail);
 
         ratingRef = FirebaseDatabase.getInstance().getReference().child("rating");
@@ -109,24 +103,26 @@ public class DetailRestaurantFragment extends Fragment {
             protected void onBindViewHolder(@NonNull final ratingViewHolder holder, final int position, @NonNull rating model) {
 
                 final ArrayList<rating> testrating = new ArrayList<>();
+                final ArrayList<rating> ausgabe = new ArrayList<>();
 
                 ratingRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()){
 
-
-
                                 rating r = new rating();
 
                                 r.setrID(ds.child("rID").getValue(String.class));
                                 r.setText(ds.child("text").getValue(String.class));
                                 r.setuID(ds.child("uID").getValue(String.class));
-                                r.setValue(ds.child("value").getValue(float.class));
+                                r.setValue(ds.child("value").getValue(Float.class));
 
                                 testrating.add(r);
                         }
-
+//                        if(restaurantName.equals(testrating.get(position).getrID()))
+//                        {
+//                            ausgabe.add(testrating.get(position));
+//                        }
                         holder.content_bewertung.setText(testrating.get(position).getuID());
                         holder.content_bewertung_star.setRating(testrating.get(position).getValue());
                         holder.content_freitextBewertung.setText(testrating.get(position).getText());
@@ -137,7 +133,6 @@ public class DetailRestaurantFragment extends Fragment {
 
                     }
                 });
-
             }
             @NonNull
             @Override
@@ -154,7 +149,6 @@ public class DetailRestaurantFragment extends Fragment {
         recycler_restaurant_detail.setAdapter(adapter);
         recycler_restaurant_detail.hasFixedSize();
         adapter.startListening();
-
     }
     public static class ratingViewHolder extends RecyclerView.ViewHolder{
 
@@ -167,11 +161,6 @@ public class DetailRestaurantFragment extends Fragment {
             content_freitextBewertung = itemView.findViewById(R.id.content_freitextBewertung);
 
             content_bewertung_star = itemView.findViewById(R.id.content_bewertung_star);
-
         }
-
-
-
-
     }
 }

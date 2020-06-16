@@ -4,7 +4,7 @@ public class rating {
     private String rID;
     private String uID;
     private String text;
-    private float value;
+    private Float value;
 
     public void setrID(String rID) {
         this.rID = rID;
@@ -18,7 +18,7 @@ public class rating {
         this.text = text;
     }
 
-    public void setValue(float value) {
+    public void setValue(Float value) {
         this.value = value;
     }
 
@@ -34,14 +34,14 @@ public class rating {
         return text;
     }
 
-    public float getValue() {
+    public Float getValue() {
         return value;
     }
 
     public rating() {
     }
 
-    public rating(String rID, String uID, String text, float value) {
+    public rating(String rID, String uID, String text, Float value) {
         this.rID = rID;
         this.uID = uID;
         this.text = text;

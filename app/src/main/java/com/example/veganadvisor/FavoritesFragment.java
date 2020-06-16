@@ -118,11 +118,7 @@ public class FavoritesFragment extends Fragment {
 
                                 Toolbar toolbar = ((MainActivity)getActivity()).toolbar;
                                 toolbar.setTitle(testrestaurants.get(position).getName());
-
                             }
-
-
-
                         });
 
                     }
