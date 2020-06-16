@@ -41,104 +41,101 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:padding="10dp"
         android:background="@color/blau"
         android:backgroundTint="@color/blau"
         android:ems="10"
+        android:fontFamily="@font/lato"
         android:hint="Full Name"
         android:inputType="textPersonName"
+        android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_description"
-        android:fontFamily="@font/lato"/>
+        app:layout_constraintTop_toBottomOf="@+id/register_description" />
 
     <EditText
         android:id="@+id/register_email_adress"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_fullName"
-
-        android:padding="10dp"
         android:background="@color/blau"
         android:backgroundTint="@color/blau"
+        android:ems="10"
+        android:hint="E-Mail Adresse"
+        android:inputType="textPersonName"
+
+        android:padding="10dp"
         android:textColor="@color/white"
         android:textColorHint="@color/grey"
-        android:hint="E-Mail Adresse"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_fullName" />
 
     <EditText
         android:id="@+id/register_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:background="@color/blau"
+        android:backgroundTint="@color/blau"
         android:ems="10"
+        android:hint="Passwort"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_email_adress"
         android:padding="10dp"
-        android:background="@color/blau"
-        android:backgroundTint="@color/blau"
         android:textColor="@color/white"
         android:textColorHint="@color/grey"
-        android:hint="Passwort"/>
-    <EditText
-        android:id="@+id/register_phone"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPhonetic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_password"
-        android:padding="10dp"
-        android:background="@color/blau"
-        android:backgroundTint="@color/blau"
-        android:textColor="@color/white"
-        android:textColorHint="@color/grey"
-        android:hint="Telefonnummer"/>
+        app:layout_constraintTop_toBottomOf="@+id/register_email_adress" />
+
+
 
     <Button
         android:id="@+id/register_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="24dp"
+        android:background="@color/grün_dunkel"
+        android:fontFamily="@font/lato_bold"
         android:text="Registrieren"
+        android:textColor="@color/black"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_phone"
-        android:layout_marginRight="24dp"
-        android:layout_marginLeft="24dp"
-        android:background="@color/grün_dunkel"
-        android:textColor="@color/black"
-        android:fontFamily="@font/lato_bold"
-        android:textSize="15dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/register_password" />
 
     <TextView
         android:id="@+id/register_link_to_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/lato"
         android:text="Bereits registriert? Login."
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_btn"
         android:textColor="@color/black"
         android:textSize="18dp"
-        android:fontFamily="@font/lato"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_btn" />
+
+    <ProgressBar
+        android:id="@+id/register_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:outlineAmbientShadowColor="@color/black"
+        android:outlineSpotShadowColor="@color/black"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_link_to_login" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,8 +27,14 @@
                 android:icon="@drawable/ic_settings"
                 android:title="Einstellungen"
                 />
+            <item
+                android:id="@+id/menu_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="Ausloggen"
+                android:onClick="logout"/>
         </menu>
     </item>
+
 
 
 </menu>
