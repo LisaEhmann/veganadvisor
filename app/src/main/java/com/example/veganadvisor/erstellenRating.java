@@ -81,7 +81,6 @@ public class erstellenRating extends Fragment {
                     detailRestaurantFragment.setArguments(bundle);
                     FragmentManager manager = getFragmentManager();
                     manager.beginTransaction().replace(R.id.container_fragment, detailRestaurantFragment).commit();
-
                }
                 else{
                     Toast toast = Toast.makeText(getActivity(), "Alle Felder müssen ausgefüllt sein!", Toast.LENGTH_SHORT);
@@ -89,7 +88,6 @@ public class erstellenRating extends Fragment {
                 }
             }
         });
-
         return rating;
     }
 }
