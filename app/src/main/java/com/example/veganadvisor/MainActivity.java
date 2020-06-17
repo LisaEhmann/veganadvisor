@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
     NavigationView navigationView;
-    NavController navController;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
 
@@ -101,8 +100,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
+    //Logout von Menu
     public void logout(MenuItem item) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(), Login.class));
+        finish();
+    }
+
+    //Logout von Profilansicht
+    public void logout(View view) {
         FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
