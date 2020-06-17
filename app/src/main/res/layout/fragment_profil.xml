@@ -1,21 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/eierfarbe">
 
     <TextView
+        android:id="@+id/profil_verify_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="E-Mail Adresse ist noch nicht verifiziert!"
+        android:textColor="@color/red"
+        android:textSize="20dp"
+        android:fontFamily="@font/lato_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/profil_verify_email_btn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Jetzt verifizieren"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profil_verify_email"
+        android:textColor="@color/black"
+        android:background="@color/grün_mittel"
+        android:textSize="16dp"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:id="@+id/profil_yourprofil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Profil Fragment"
+        android:layout_marginTop="16dp"
+        android:text="Dein Profil"
         android:textSize="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/blau"
+        android:fontFamily="@font/lato_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/profil_verify_email_btn" />
+
+    <ImageView
+        android:id="@+id/profil_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profil_yourprofil"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/profil_fullname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:hint="User Name"
+        android:textSize="20dp"
+        android:textColor="@color/grün_dunkel"
+        android:textColorHint="@color/grün_mittel"
+        app:layout_constraintStart_toEndOf="@+id/profil_image"
+        app:layout_constraintTop_toBottomOf="@+id/profil_yourprofil" />
+
+    <TextView
+        android:id="@+id/profil_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:hint="E-Mail Adresse"
+        android:textSize="20dp"
+        android:textColor="@color/grün_dunkel"
+        android:textColorHint="@color/grün_mittel"
+        app:layout_constraintStart_toEndOf="@+id/profil_image"
+        app:layout_constraintTop_toBottomOf="@+id/profil_fullname" />
+
+    <Button
+        android:id="@+id/profil_logout"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@color/blau"
+        android:text="LOGOUT"
+        android:textColor="@color/eierfarbe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profil_email"
+        android:onClick="logout"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
