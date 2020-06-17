@@ -88,13 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment, new ProfilFragment());
             fragmentTransaction.commit();
             toolbar.setTitle("Profil");
-        } else if (item.getItemId() == R.id.menu_einstellungen){
-            navigationView.setCheckedItem(R.id.menu_einstellungen);
-            fragmentManager = getSupportFragmentManager();
-            fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container_fragment, new EinstellungenFragment());
-            fragmentTransaction.commit();
-            toolbar.setTitle("Einstellungen");
         }
         return true;
     }

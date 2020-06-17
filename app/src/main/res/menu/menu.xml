@@ -16,17 +16,12 @@
         </menu>
     </item>
 
-    <item android:title="Einstellungen">
+    <item android:title="Profil">
         <menu>
             <item
                 android:id="@+id/menu_profil"
                 android:icon="@drawable/ic_person"
-                android:title="Profil" />
-            <item
-                android:id="@+id/menu_einstellungen"
-                android:icon="@drawable/ic_settings"
-                android:title="Einstellungen"
-                />
+                android:title="Mein Profil" />
             <item
                 android:id="@+id/menu_logout"
                 android:icon="@drawable/ic_logout"
