@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:visibility="visible"/>
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/profil_verify_email_btn"
@@ -31,7 +31,7 @@
         android:textColor="@color/black"
         android:background="@color/grün_mittel"
         android:textSize="16dp"
-        android:visibility="visible"/>
+        android:visibility="invisible"/>
 
     <TextView
         android:layout_width="wrap_content"
