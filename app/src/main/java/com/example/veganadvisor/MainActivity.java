@@ -82,6 +82,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.container_fragment, new FavoritesFragment());
             fragmentTransaction.commit();
             toolbar.setTitle("VeganAdvisor");
+        } else if (item.getItemId() == R.id.menu_neuRestaurant){
+            navigationView.setCheckedItem(R.id.menu_neuRestaurant);
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container_fragment, new erstellenRestaurant());
+            fragmentTransaction.commit();
+            toolbar.setTitle("Neues Restaurant anlegen");
         } else if (item.getItemId() == R.id.menu_profil){
             navigationView.setCheckedItem(R.id.menu_profil);
             fragmentManager = getSupportFragmentManager();

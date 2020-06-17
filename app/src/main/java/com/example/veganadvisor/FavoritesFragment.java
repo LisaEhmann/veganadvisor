@@ -83,12 +83,11 @@ public class FavoritesFragment extends Fragment {
 
                             restaurant r = new restaurant();
 
-                            r.setID(ds.child("ID").getValue(String.class));
-                            r.setName(ds.child("Name").getValue(String.class));
-                            r.setOpening(ds.child("Opening").getValue(String.class));
-                            r.setAdresse(ds.child("Adresse").getValue(String.class));
-                            r.setBeschreibung(ds.child("Beschreibung").getValue(String.class));
-
+                            r.setID(ds.child("id").getValue(String.class));
+                            r.setName(ds.child("name").getValue(String.class));
+                            r.setOpening(ds.child("opening").getValue(String.class));
+                            r.setAdresse(ds.child("adresse").getValue(String.class));
+                            r.setBeschreibung(ds.child("beschreibung").getValue(String.class));
 
                             testrestaurants.add(r);
                         }
