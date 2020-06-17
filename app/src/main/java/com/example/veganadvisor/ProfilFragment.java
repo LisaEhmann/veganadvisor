@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +25,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.auth.User;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.concurrent.Executor;
 
@@ -33,6 +35,9 @@ public class ProfilFragment extends Fragment {
     String userID;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
+
+
+
 
     @Nullable
     @Override

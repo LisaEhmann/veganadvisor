@@ -40,19 +40,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="170dp"
         android:layout_marginEnd="10dp"
-        android:ems="10"
         android:hint="Geben Sie hier Ihre Bewertung ein. (max. 200 Zeichen)"
         android:inputType="textMultiLine"
         android:maxLength="200"
         android:textColor="@color/black"
         android:textColorHint="@color/grey"
-        app:layout_constraintBottom_toTopOf="@+id/btn_absenden"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_absenden"

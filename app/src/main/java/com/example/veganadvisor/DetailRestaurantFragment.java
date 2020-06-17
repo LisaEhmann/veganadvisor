@@ -73,11 +73,11 @@ public class DetailRestaurantFragment extends Fragment {
             public void onClick(View v) {
 
                 Bundle bundle = new Bundle();
-                bundle.putString("Name", restaurantName);
-                bundle.putString("Opening", restaurantOpening);
-                bundle.putString("Adresse", restaurantAdresse);
-                bundle.putString("Beschreibung", restaurantBeschreibung);
-                bundle.putString("ID", restaurantID);
+                bundle.putString("name", restaurantName);
+                bundle.putString("opening", restaurantOpening);
+                bundle.putString("adresse", restaurantAdresse);
+                bundle.putString("beschreibung", restaurantBeschreibung);
+                bundle.putString("id", restaurantID);
 
                 erstellenRating erstellenrating = new erstellenRating();
                 erstellenrating.setArguments(bundle);
