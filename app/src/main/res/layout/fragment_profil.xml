@@ -48,40 +48,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profil_verify_email_btn" />
 
-    <ImageView
-        android:id="@+id/profil_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profil_yourprofil"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/profil_fullname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:hint="User Name"
-        android:textSize="20dp"
         android:textColor="@color/grün_dunkel"
         android:textColorHint="@color/grün_mittel"
-        app:layout_constraintStart_toEndOf="@+id/profil_image"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/profil_text_email"
         app:layout_constraintTop_toBottomOf="@+id/profil_yourprofil" />
 
     <TextView
         android:id="@+id/profil_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="10dp"
         android:hint="E-Mail Adresse"
-        android:textSize="20dp"
         android:textColor="@color/grün_dunkel"
         android:textColorHint="@color/grün_mittel"
-        app:layout_constraintStart_toEndOf="@+id/profil_image"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/profil_text_email"
         app:layout_constraintTop_toBottomOf="@+id/profil_fullname" />
 
     <Button
@@ -97,6 +87,29 @@
         app:layout_constraintTop_toBottomOf="@+id/profil_email"
         android:onClick="logout"/>
 
+    <TextView
+        android:id="@+id/profil_text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="32dp"
+        android:text="Name: "
+        android:textColor="@color/grün_mittel"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profil_yourprofil" />
+
+    <TextView
+        android:id="@+id/profil_text_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="E-Mail: "
+        android:textColor="@color/grün_mittel"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profil_text_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
