@@ -23,8 +23,6 @@
                             android:background="@drawable/rounded_grey"
                             android:bottomLeftRadius="6dp"
                             android:bottomRightRadius="6dp"
-                            android:topLeftRadius="6dp"
-                            android:topRightRadius="6dp"
                             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -64,7 +62,7 @@
                             android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
                             android:layout_marginStart="10dp"
-                            android:layout_marginTop="300dp"
+                            android:layout_marginTop="260dp"
                             android:layout_marginEnd="10dp"
                             android:background="@drawable/rechteck_button"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -77,7 +75,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginTop="360dp"
+                            android:layout_marginTop="320dp"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/lato_bold"
                             android:text="Adresse"
@@ -92,7 +90,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginTop="380dp"
+                            android:layout_marginTop="340dp"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/lato"
                             android:text="Hier kommt die Adresse rein"
@@ -106,7 +104,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginTop="430dp"
+                            android:layout_marginTop="390dp"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/lato_bold"
                             android:text="Öffnungszeiten"
@@ -121,7 +119,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginTop="450dp"
+                            android:layout_marginTop="410dp"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/lato"
                             android:text="Hier kommen die Öffnungszeiten hin"
@@ -135,7 +133,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:layout_marginTop="500dp"
+                            android:layout_marginTop="460dp"
                             android:layout_marginEnd="10dp"
                             android:fontFamily="@font/lato_bold"
                             android:text="Bewertungen"
@@ -148,7 +146,7 @@
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recycler_restaurant_detail"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             app:layout_constraintTop_toBottomOf="@+id/bewertungen" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
