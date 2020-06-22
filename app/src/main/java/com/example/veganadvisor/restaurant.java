@@ -7,18 +7,28 @@ public class restaurant {
     private String Adresse;
     private String opening;
     private String beschreibung;
+    private String bild;
 
 
 
     public restaurant() {
     }
 
-    public restaurant(String ID, String Name, String Adresse, String Opening, String Beschreibung) {
+    public void setBild(String bild) {
+        this.bild = bild;
+    }
+
+    public String getBild() {
+        return bild;
+    }
+
+    public restaurant(String ID, String Name, String Adresse, String Opening, String Beschreibung, String bild) {
         this.ID = ID;
         this.Name = Name;
         this.Adresse = Adresse;
         this.opening = Opening;
         this.beschreibung = Beschreibung;
+        this.bild = bild;
 
     }
 

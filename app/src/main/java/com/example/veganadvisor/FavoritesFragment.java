@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -91,6 +92,7 @@ public class FavoritesFragment extends Fragment {
                             r.setOpening(ds.child("opening").getValue(String.class));
                             r.setAdresse(ds.child("adresse").getValue(String.class));
                             r.setBeschreibung(ds.child("beschreibung").getValue(String.class));
+                            r.setBild(ds.child("bild").getValue(String.class));
 
                             testrestaurants.add(r);
                         }
@@ -101,16 +103,18 @@ public class FavoritesFragment extends Fragment {
 
                         holder.content_restaurantname.setText(testrestaurants.get(position).getName());
                         holder.content_restaurantdescription.setText(testrestaurants.get(position).getBeschreibung());
+                        Picasso.get().load(testrestaurants.get(position).getBild()).into(holder.content_placeholderimage);
 
                         holder.content_btn_arrow.setOnClickListener(new View.OnClickListener(){
                             @Override
                             public void onClick(View v){
                                 Bundle bundle = new Bundle();
-                                bundle.putString("ID", testrestaurants.get(position).getID());
-                                bundle.putString("Name", testrestaurants.get(position).getName());
-                                bundle.putString("Opening", testrestaurants.get(position).getOpening());
-                                bundle.putString("Adresse", testrestaurants.get(position).getAdresse());
-                                bundle.putString("Beschreibung", testrestaurants.get(position).getBeschreibung());
+                                bundle.putString("id", testrestaurants.get(position).getID());
+                                bundle.putString("name", testrestaurants.get(position).getName());
+                                bundle.putString("opening", testrestaurants.get(position).getOpening());
+                                bundle.putString("adresse", testrestaurants.get(position).getAdresse());
+                                bundle.putString("beschreibung", testrestaurants.get(position).getBeschreibung());
+                                bundle.putString("bild", testrestaurants.get(position).getBild());
 
                                 DetailRestaurantFragment detailRestaurantFragment = new DetailRestaurantFragment();
 
