@@ -106,11 +106,11 @@ public class FavoritesFragment extends Fragment {
                             @Override
                             public void onClick(View v){
                                 Bundle bundle = new Bundle();
-                                bundle.putString("ID", testrestaurants.get(position).getID());
-                                bundle.putString("Name", testrestaurants.get(position).getName());
-                                bundle.putString("Opening", testrestaurants.get(position).getOpening());
-                                bundle.putString("Adresse", testrestaurants.get(position).getAdresse());
-                                bundle.putString("Beschreibung", testrestaurants.get(position).getBeschreibung());
+                                bundle.putString("id", testrestaurants.get(position).getID());
+                                bundle.putString("name", testrestaurants.get(position).getName());
+                                bundle.putString("opening", testrestaurants.get(position).getOpening());
+                                bundle.putString("adresse", testrestaurants.get(position).getAdresse());
+                                bundle.putString("beschreibung", testrestaurants.get(position).getBeschreibung());
 
                                 DetailRestaurantFragment detailRestaurantFragment = new DetailRestaurantFragment();
 

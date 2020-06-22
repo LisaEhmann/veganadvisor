@@ -38,11 +38,11 @@ public class erstellenRating extends Fragment {
         rating = inflater.inflate(R.layout.erstellen_bewertung, container, false);
 
         Bundle bundle = this.getArguments();
-        restaurantName = bundle.getString("Name");
-        restaurantAdresse = bundle.getString("Adresse");
-        restaurantOpening = bundle.getString("Opening");
-        restaurantBeschreibung = bundle.getString("Beschreibung");
-        restaurantID = bundle.getString("ID");
+        restaurantName = bundle.getString("name");
+        restaurantAdresse = bundle.getString("adresse");
+        restaurantOpening = bundle.getString("opening");
+        restaurantBeschreibung = bundle.getString("beschreibung");
+        restaurantID = bundle.getString("id");
 
         ratingRef = FirebaseDatabase.getInstance().getReference().child("rating").child(restaurantID);
 
@@ -67,11 +67,11 @@ public class erstellenRating extends Fragment {
                    ratingRef.push().setValue(newrating);
 
                     Bundle bundle = new Bundle();
-                    bundle.putString("Name", restaurantName);
-                    bundle.putString("Opening", restaurantOpening);
-                    bundle.putString("Adresse", restaurantAdresse);
-                    bundle.putString("Beschreibung", restaurantBeschreibung);
-                    bundle.putString("ID", restaurantID);
+                    bundle.putString("name", restaurantName);
+                    bundle.putString("opening", restaurantOpening);
+                    bundle.putString("adresse", restaurantAdresse);
+                    bundle.putString("beschreibung", restaurantBeschreibung);
+                    bundle.putString("id", restaurantID);
 
                     DetailRestaurantFragment detailRestaurantFragment = new DetailRestaurantFragment();
                     detailRestaurantFragment.setArguments(bundle);
