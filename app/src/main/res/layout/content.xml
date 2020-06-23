@@ -20,9 +20,10 @@
 
         <ImageView
             android:id="@+id/content_placeholderimage"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="140dp"
-            android:background="@drawable/rounded_grey"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_eierfarbe"
             android:bottomLeftRadius="6dp"
             android:bottomRightRadius="6dp"
             android:topLeftRadius="6dp"

@@ -23,6 +23,8 @@
                             android:background="@drawable/rounded_grey"
                             android:bottomLeftRadius="6dp"
                             android:bottomRightRadius="6dp"
+                            android:foregroundGravity="center_horizontal"
+                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
 
