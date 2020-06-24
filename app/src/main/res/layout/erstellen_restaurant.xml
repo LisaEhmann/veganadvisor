@@ -1,116 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/grün_hell">
+    android:background="@color/grün_hell"
+    tools:ignore="ExtraText">
 
-    <EditText
-        android:id="@+id/edit_restaurant_name"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:ems="10"
-        android:fontFamily="@font/lato_bold"
-        android:hint="Restaurantname eingeben "
-        android:inputType="text"
-        android:textColor="@color/grün_dunkel"
-        android:textColorHint="@color/grün_dunkel"
-        android:textSize="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/edit_restaurant_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginEnd="10dp"
-        android:ems="10"
-        android:hint="Geben Sie eine Beschreibung für das Restaurant ein. (max. 200 Zeichen)"
-        android:inputType="textMultiLine"
-        android:maxLength="200"
-        android:textColorHint="@color/grey"
-        app:layout_constraintEnd_toStartOf="@+id/edit_adress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edit_adress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="210dp"
-        android:layout_marginEnd="10dp"
-        android:ems="10"
-        android:hint="Geben Sie die Adresse des Restaurants ein."
-        android:inputType="text"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/edit_restaurant_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:fontFamily="@font/lato_bold"
+            android:hint="Restaurantname eingeben "
+            android:inputType="text"
+            android:textColor="@color/grün_dunkel"
+            android:textColorHint="@color/grün_dunkel"
+            android:textSize="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edit_restaurant_opening"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="10dp"
-        android:ems="10"
-        android:hint="Geben Sie die Öffnungszeiten des Restaurants ein."
-        android:inputType="textMultiLine"
-        android:textColorHint="@color/grey"
-        app:layout_constraintEnd_toStartOf="@+id/edit_bewertung"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/edit_restaurant_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:hint="Geben Sie eine Beschreibung für das Restaurant ein. (max. 200 Zeichen)"
+            android:inputType="textMultiLine"
+            android:maxLength="200"
+            android:textColorHint="@color/grey"
+            app:layout_constraintEnd_toStartOf="@+id/edit_adress"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_name" />
 
-    <RatingBar
-        android:id="@+id/edit_ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="330dp"
-        android:progressBackgroundTint="@color/grün_mittel"
-        android:progressTint="@color/grün_dunkel"
-        android:secondaryProgressTint="@color/grün_dunkel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/edit_adress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:hint="Geben Sie die Adresse des Restaurants ein."
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_description" />
 
-    <EditText
-        android:id="@+id/edit_bewertung"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="390dp"
-        android:layout_marginEnd="10dp"
-        android:ems="10"
-        android:hint="Geben Sie hier Ihre Bewertung ein. (max. 200 Zeichen)"
-        android:inputType="textMultiLine"
-        android:maxLength="200"
-        android:textColor="@color/black"
-        android:textColorHint="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/edit_restaurant_opening"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:hint="Geben Sie die Öffnungszeiten des Restaurants ein."
+            android:inputType="textMultiLine"
+            android:textColorHint="@color/grey"
+            app:layout_constraintEnd_toStartOf="@+id/edit_bewertung"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_adress" />
 
-    <Button
-        android:id="@+id/edit_btn_absende"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="10dp"
-        android:background="@drawable/rounded_green_dark"
-        android:text="Absenden"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <RatingBar
+            android:id="@+id/edit_ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:progressBackgroundTint="@color/grün_mittel"
+            android:progressTint="@color/grün_dunkel"
+            android:secondaryProgressTint="@color/grün_dunkel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_restaurant_opening" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/edit_bewertung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:ems="10"
+            android:hint="Geben Sie hier Ihre Bewertung ein. (max. 200 Zeichen)"
+            android:inputType="textMultiLine"
+            android:maxLength="200"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_ratingBar" />
+
+        <Button
+            android:id="@+id/edit_choose_file_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/grün_mittel"
+            android:text="Datei auswählen"
+            android:textSize="10dp"
+
+            app:layout_constraintBottom_toTopOf="@+id/edit_image_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_bewertung"
+            app:layout_constraintVertical_bias="0.55" />
+
+        <EditText
+            android:id="@+id/edit_text_file_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Name der Datei (max. 100 Zeichen)"
+            android:inputType="textMultiLine"
+            android:maxLength="100"
+            android:ems="12"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey"
+            app:layout_constraintBottom_toTopOf="@+id/edit_image_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/edit_choose_file_btn"
+            app:layout_constraintTop_toBottomOf="@+id/edit_bewertung" />
+
+        <ImageView
+            android:id="@+id/edit_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/edit_progressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_text_file_name" />
+
+        <ProgressBar
+            android:id="@+id/edit_progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/edit_btn_absende"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_image_view" />
+
+        <Button
+            android:id="@+id/edit_btn_absende"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_green_dark"
+            android:text="Absenden"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_progressBar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
