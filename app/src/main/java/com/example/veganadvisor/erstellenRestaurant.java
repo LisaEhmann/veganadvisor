@@ -57,6 +57,7 @@ public class erstellenRestaurant extends Fragment {
     private Random r = new Random();
     private rating rating = new rating();
     private final int i = r.nextInt(1000000000);
+    private String mUri;
 
     private Uri mImageUri;
     private StorageReference mStorageRef;
@@ -85,12 +86,9 @@ public class erstellenRestaurant extends Fragment {
         btn_absenden                = newrestaurant.findViewById(R.id.edit_btn_absende);
         ratingBar                   = newrestaurant.findViewById(R.id.edit_ratingBar);
         //Elemente finden Upload Image
-        mEdit_text_filename = newrestaurant.findViewById(R.id.edit_text_file_name);
         mBTN_choose_file    = newrestaurant.findViewById(R.id.edit_choose_file_btn);
-        mBTN_upload_image   = newrestaurant.findViewById(R.id.edit_btn_upload);
         mImageView          = newrestaurant.findViewById(R.id.edit_image_view);
-        mProgressBar        = newrestaurant.findViewById(R.id.edit_progressBar);
-        mStorageRef     = FirebaseStorage.getInstance().getReference("uploads");
+        mStorageRef     = FirebaseStorage.getInstance().getReference();
         mDatabaseRef    = FirebaseDatabase.getInstance().getReference("uploads");
 
 
@@ -101,17 +99,6 @@ public class erstellenRestaurant extends Fragment {
             }
         });
 
-
-        mBTN_upload_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(mUploadTask != null && mUploadTask.isInProgress()){
-                    Toast.makeText(getActivity(), "Upload in Progress", Toast.LENGTH_SHORT).show();
-                } else {
-                    uploadFile();
-                }
-            }
-        });
 
         mBTN_choose_file.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,6 +117,7 @@ public class erstellenRestaurant extends Fragment {
         restaurant.setOpening(edit_restaurant_opening.getText().toString());
         restaurant.setID(Integer.toString(i));
         restaurant.setBeschreibung(edit_restaurant_description.getText().toString());
+        restaurant.setBild(mUri);
 
         rating.setText(edit_bewertung.getText().toString());
         rating.setValue(ratingBar.getRating());
@@ -164,51 +152,6 @@ public class erstellenRestaurant extends Fragment {
         }
     }
 
-    private String getFileExtension(Uri uri){
-        ContentResolver cR = getActivity().getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(cR.getType(uri));
-    }
-
-    private void uploadFile() {
-        if (mImageUri != null) {
-            StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
-            mUploadTask = fileReference.putFile(mImageUri)
-                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            Handler handler = new Handler();
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mProgressBar.setProgress(0);
-                                }
-                            }, 500);
-                            Toast.makeText(getActivity(), "Upload successful", Toast.LENGTH_LONG).show();
-                            Upload_Image upload = new Upload_Image(mEdit_text_filename.getText().toString().trim(),
-                                    taskSnapshot.getStorage().getDownloadUrl().toString());
-                            String uploadId = mDatabaseRef.push().getKey();
-                            mDatabaseRef.child(uploadId).setValue(upload);
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            mProgressBar.setProgress((int) progress);
-                        }
-                    });
-        } else {
-            Toast.makeText(getActivity(), "No file selected", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 
     private void openFileChooser() {
         Intent intent = new Intent();
@@ -223,7 +166,33 @@ public class erstellenRestaurant extends Fragment {
 
         if ( requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
             mImageUri = data.getData();
-            Picasso.get().load(mImageUri).into(mImageView);
+
+            uploadImage(mImageUri);
+
+//            Picasso.get().load(mImageUri).into(mImageView);
         }
+    }
+
+    private void uploadImage(Uri ImageURI) {
+
+        final StorageReference mIDRef = mStorageRef.child(edit_restaurant_name.getText().toString());
+
+        mIDRef.putFile(ImageURI).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Picasso.get().load(mImageUri).into(mImageView);
+//                Toast.makeText(getActivity(),"Irgendwas", Toast.LENGTH_SHORT).show();
+
+                mIDRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        mUri = uri.toString();
+                    }
+                });
+
+            }
+        });
+
+
     }
 }

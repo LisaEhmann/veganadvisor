@@ -109,85 +109,42 @@
 
         <Button
             android:id="@+id/edit_choose_file_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
-            android:background="@color/grün_mittel"
-            android:text="Datei auswählen"
-            android:textSize="10dp"
-
-            app:layout_constraintBottom_toTopOf="@+id/edit_image_view"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_bewertung"
-            app:layout_constraintVertical_bias="0.55" />
-
-        <EditText
-            android:id="@+id/edit_text_file_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:hint="Name der Datei (max. 100 Zeichen)"
-            android:inputType="textMultiLine"
-            android:maxLength="100"
-            android:ems="12"
-            android:textColor="@color/black"
-            android:textColorHint="@color/grey"
-            app:layout_constraintBottom_toTopOf="@+id/edit_image_view"
+            android:background="@drawable/rounded_green_dark"
+            android:text="Bild auswählen"
+
+            android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/edit_choose_file_btn"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_bewertung" />
 
         <ImageView
             android:id="@+id/edit_image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="206dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/edit_progressBar"
+            android:layout_marginEnd="205dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_text_file_name" />
-
-        <Button
-            android:id="@+id/edit_btn_upload"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Bild hochladen"
-            android:background="@color/grün_mittel"
-            app:layout_constraintBottom_toTopOf="@id/edit_progressBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_image_view" />
-
-        <ProgressBar
-            android:id="@+id/edit_progressBar"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/edit_btn_absende"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_btn_upload" />
+            app:layout_constraintTop_toBottomOf="@id/edit_choose_file_btn" />
 
         <Button
             android:id="@+id/edit_btn_absende"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_green_dark"
             android:text="Absenden"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_progressBar" />
+            app:layout_constraintStart_toStartOf="@id/edit_image_view"
+            app:layout_constraintTop_toBottomOf="@id/edit_image_view" />
 
 
 
