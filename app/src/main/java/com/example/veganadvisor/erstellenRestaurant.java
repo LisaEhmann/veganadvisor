@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,6 +31,7 @@ public class erstellenRestaurant extends Fragment {
     private restaurant restaurant = new restaurant();
     private Random r = new Random();
     private rating rating = new rating();
+    private FirebaseAuth FAuth;
 
 
     @Nullable
@@ -40,6 +42,7 @@ public class erstellenRestaurant extends Fragment {
         newrestaurant = inflater.inflate(R.layout.erstellen_restaurant, container, false);
 
         restaurantRef = FirebaseDatabase.getInstance().getReference().child("restaurant");
+        FAuth = FirebaseAuth.getInstance();
 
         //Elemente finden
         edit_restaurant_name = newrestaurant.findViewById(R.id.edit_restaurant_name);
@@ -59,9 +62,12 @@ public class erstellenRestaurant extends Fragment {
                 restaurant.setOpening(edit_restaurant_opening.getText().toString());
                 restaurant.setID(Integer.toString(i));
                 restaurant.setBeschreibung(edit_restaurant_description.getText().toString());
+                restaurant.setBild("https://firebasestorage.googleapis.com/v0/b/veganadvisor-levn.appspot.com/o/LeerBild.jpg?alt=media&token=6cb98a17-b0f0-4ab0-b163-f0f946845906");
 
                 rating.setText(edit_bewertung.getText().toString());
                 rating.setValue(ratingBar.getRating());
+                rating.setuID(FAuth.getCurrentUser().getUid());
+
 
 
 
@@ -73,11 +79,12 @@ public class erstellenRestaurant extends Fragment {
                     ratingRef.push().setValue(rating);
 
                     Bundle bundle = new Bundle();
-                    bundle.putString("Name", restaurant.getName());
-                    bundle.putString("Opening", restaurant.getOpening());
-                    bundle.putString("Adresse", restaurant.getAdresse());
-                    bundle.putString("Beschreibung", restaurant.getBeschreibung());
-                    bundle.putString("ID", restaurant.getID());
+                    bundle.putString("name", restaurant.getName());
+                    bundle.putString("opening", restaurant.getOpening());
+                    bundle.putString("adresse", restaurant.getAdresse());
+                    bundle.putString("beschreibung", restaurant.getBeschreibung());
+                    bundle.putString("id", restaurant.getID());
+                    bundle.putString("bild", restaurant.getBild());
 
                     DetailRestaurantFragment detailRestaurantFragment = new DetailRestaurantFragment();
                     detailRestaurantFragment.setArguments(bundle);
@@ -91,10 +98,6 @@ public class erstellenRestaurant extends Fragment {
                 }
             }
         });
-
-
-
-
 
         return newrestaurant;
     }
