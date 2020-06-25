@@ -21,8 +21,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+
+import com.google.firebase.auth.FirebaseAuth;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -59,6 +63,8 @@ public class erstellenRestaurant extends Fragment {
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
 
+    private FirebaseAuth FAuth;
+
 
 
     @Nullable
@@ -68,6 +74,7 @@ public class erstellenRestaurant extends Fragment {
         newrestaurant = inflater.inflate(R.layout.erstellen_restaurant, container, false);
 
         restaurantRef = FirebaseDatabase.getInstance().getReference().child("restaurant");
+        FAuth = FirebaseAuth.getInstance();
 
         //Elemente finden Erstelllen und Bewertung abgeben
         edit_restaurant_name        = newrestaurant.findViewById(R.id.edit_restaurant_name);
@@ -93,6 +100,7 @@ public class erstellenRestaurant extends Fragment {
                 restaurantErstellenBewertungAbgeben();
             }
         });
+
 
         mBTN_upload_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +133,8 @@ public class erstellenRestaurant extends Fragment {
 
         rating.setText(edit_bewertung.getText().toString());
         rating.setValue(ratingBar.getRating());
+        rating.setuID(FAuth.getCurrentUser().getUid());
+
 
 
         if(!restaurant.getName().equals("") && !restaurant.getAdresse().equals("") && !restaurant.getBeschreibung().equals("") && !restaurant.getOpening().equals("") && !restaurant.getID().equals("") && !restaurant.getBeschreibung().equals("") && !rating.getText().equals("") && rating.getValue() != 0){
@@ -135,11 +145,12 @@ public class erstellenRestaurant extends Fragment {
             ratingRef.push().setValue(rating);
 
             Bundle bundle = new Bundle();
-            bundle.putString("Name", restaurant.getName());
-            bundle.putString("Opening", restaurant.getOpening());
-            bundle.putString("Adresse", restaurant.getAdresse());
-            bundle.putString("Beschreibung", restaurant.getBeschreibung());
-            bundle.putString("ID", restaurant.getID());
+            bundle.putString("name", restaurant.getName());
+            bundle.putString("opening", restaurant.getOpening());
+            bundle.putString("adresse", restaurant.getAdresse());
+            bundle.putString("beschreibung", restaurant.getBeschreibung());
+            bundle.putString("id", restaurant.getID());
+            bundle.putString("bild", restaurant.getBild());
 
             DetailRestaurantFragment detailRestaurantFragment = new DetailRestaurantFragment();
             detailRestaurantFragment.setArguments(bundle);
@@ -197,7 +208,6 @@ public class erstellenRestaurant extends Fragment {
             Toast.makeText(getActivity(), "No file selected", Toast.LENGTH_SHORT).show();
         }
 
-
     }
 
     private void openFileChooser() {
@@ -207,13 +217,13 @@ public class erstellenRestaurant extends Fragment {
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if ( requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
-//            mImageUri = data.getData();
-//            Picasso.get().load(mImageUri).into(mImageView);
-//        }
-//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if ( requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
+            mImageUri = data.getData();
+            Picasso.get().load(mImageUri).into(mImageView);
+        }
+    }
 }
