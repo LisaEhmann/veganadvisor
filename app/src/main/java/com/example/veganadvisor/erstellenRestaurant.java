@@ -46,7 +46,7 @@ public class erstellenRestaurant extends Fragment {
     private View newrestaurant;
     private EditText edit_restaurant_name, edit_adress, edit_bewertung, edit_restaurant_description, edit_restaurant_opening, mEdit_text_filename;
     private RatingBar ratingBar;
-    private Button btn_absenden, mBTN_choose_file;
+    private Button btn_absenden, mBTN_choose_file, mBTN_upload_image;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
     private restaurant restaurant = new restaurant();
@@ -70,28 +70,38 @@ public class erstellenRestaurant extends Fragment {
         restaurantRef = FirebaseDatabase.getInstance().getReference().child("restaurant");
 
         //Elemente finden Erstelllen und Bewertung abgeben
-        edit_restaurant_name = newrestaurant.findViewById(R.id.edit_restaurant_name);
+        edit_restaurant_name        = newrestaurant.findViewById(R.id.edit_restaurant_name);
         edit_restaurant_description = newrestaurant.findViewById(R.id.edit_restaurant_description);
-        edit_adress = newrestaurant.findViewById(R.id.edit_adress);
-        edit_restaurant_opening = newrestaurant.findViewById(R.id.edit_restaurant_opening);
-        edit_bewertung = newrestaurant.findViewById(R.id.edit_bewertung);
-        btn_absenden = newrestaurant.findViewById(R.id.edit_btn_absende);
-        ratingBar = newrestaurant.findViewById(R.id.edit_ratingBar);
+        edit_adress                 = newrestaurant.findViewById(R.id.edit_adress);
+        edit_restaurant_opening     = newrestaurant.findViewById(R.id.edit_restaurant_opening);
+        edit_bewertung              = newrestaurant.findViewById(R.id.edit_bewertung);
+        btn_absenden                = newrestaurant.findViewById(R.id.edit_btn_absende);
+        ratingBar                   = newrestaurant.findViewById(R.id.edit_ratingBar);
         //Elemente finden Upload Image
         mEdit_text_filename = newrestaurant.findViewById(R.id.edit_text_file_name);
-        mBTN_choose_file = newrestaurant.findViewById(R.id.edit_choose_file_btn);
-        mImageView = newrestaurant.findViewById(R.id.edit_image_view);
-        mProgressBar = newrestaurant.findViewById(R.id.edit_progressBar);
-        mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
+        mBTN_choose_file    = newrestaurant.findViewById(R.id.edit_choose_file_btn);
+        mBTN_upload_image   = newrestaurant.findViewById(R.id.edit_btn_upload);
+        mImageView          = newrestaurant.findViewById(R.id.edit_image_view);
+        mProgressBar        = newrestaurant.findViewById(R.id.edit_progressBar);
+        mStorageRef     = FirebaseStorage.getInstance().getReference("uploads");
+        mDatabaseRef    = FirebaseDatabase.getInstance().getReference("uploads");
 
 
         btn_absenden.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadFile();
                 restaurantErstellenBewertungAbgeben();
+            }
+        });
 
+        mBTN_upload_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mUploadTask != null && mUploadTask.isInProgress()){
+                    Toast.makeText(getActivity(), "Upload in Progress", Toast.LENGTH_SHORT).show();
+                } else {
+                    uploadFile();
+                }
             }
         });
 
@@ -173,7 +183,7 @@ public class erstellenRestaurant extends Fragment {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

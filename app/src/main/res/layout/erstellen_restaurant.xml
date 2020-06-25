@@ -151,6 +151,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edit_text_file_name" />
 
+        <Button
+            android:id="@+id/edit_btn_upload"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Bild hochladen"
+            android:background="@color/grün_mittel"
+            app:layout_constraintBottom_toTopOf="@id/edit_progressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edit_image_view" />
+
         <ProgressBar
             android:id="@+id/edit_progressBar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -161,7 +173,7 @@
             app:layout_constraintBottom_toTopOf="@+id/edit_btn_absende"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_image_view" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_btn_upload" />
 
         <Button
             android:id="@+id/edit_btn_absende"
@@ -176,6 +188,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_progressBar" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
