@@ -55,7 +55,7 @@ public class DetailRestaurantFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        restaurant_detail_content = inflater.inflate(R.layout.fragment_restaurant_detailansicht, container,false);
+        restaurant_detail_content = inflater.inflate(R.layout.fragment_restaurant_detailansicht, container, false);
 
         Bundle bundle = this.getArguments();
         restaurantName = bundle.getString("name");
@@ -97,7 +97,7 @@ public class DetailRestaurantFragment extends Fragment {
                 FragmentManager manager = getFragmentManager();
                 manager.beginTransaction().replace(R.id.container_fragment, erstellenrating).commit();
 
-                Toolbar toolbar = ((MainActivity)getActivity()).toolbar;
+                Toolbar toolbar = ((MainActivity) getActivity()).toolbar;
                 toolbar.setTitle("Bewertung abgeben");
             }
         });
@@ -108,7 +108,7 @@ public class DetailRestaurantFragment extends Fragment {
         return restaurant_detail_content;
     }
 
-    public void onStart(){
+    public void onStart() {
         super.onStart();
 
         final FirebaseRecyclerOptions options = new FirebaseRecyclerOptions.Builder<rating>().setQuery(ratingRef, rating.class).build();
@@ -121,15 +121,15 @@ public class DetailRestaurantFragment extends Fragment {
                 ratingRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot ds : dataSnapshot.getChildren()){
+                        for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-                                final rating r = new rating();
+                            final rating r = new rating();
 
-                                r.setrID(ds.child("rID").getValue(String.class));
-                                r.setText(ds.child("text").getValue(String.class));
-                                r.setValue(ds.child("value").getValue(Float.class));
-                                r.setuID(ds.child("uID").getValue(String.class));
-                                testrating.add(r);
+                            r.setrID(ds.child("rID").getValue(String.class));
+                            r.setText(ds.child("text").getValue(String.class));
+                            r.setValue(ds.child("value").getValue(Float.class));
+                            r.setuID(ds.child("uID").getValue(String.class));
+                            testrating.add(r);
                         }
 
                         FStore = FirebaseFirestore.getInstance();
@@ -141,18 +141,19 @@ public class DetailRestaurantFragment extends Fragment {
                                 Log.i("Test", documentSnapshot.getString("fullName"));
                             }
                         });
-                            holder.content_bewertung_star.setRating(testrating.get(position).getValue());
-                            holder.content_freitextBewertung.setText(testrating.get(position).getText());
+                        holder.content_bewertung_star.setRating(testrating.get(position).getValue());
+                        holder.content_freitextBewertung.setText(testrating.get(position).getText());
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
                 });
             }
+
             @NonNull
             @Override
             public ratingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_bewertungen, parent, false);
                 ratingViewHolder viewHolder = new ratingViewHolder(view);
 
@@ -165,12 +166,12 @@ public class DetailRestaurantFragment extends Fragment {
         recycler_restaurant_detail.hasFixedSize();
         adapter.startListening();
     }
-    public static class ratingViewHolder extends RecyclerView.ViewHolder{
 
+    public static class ratingViewHolder extends RecyclerView.ViewHolder {
         TextView content_bewertung, content_freitextBewertung;
         RatingBar content_bewertung_star;
 
-        public ratingViewHolder(@NonNull View itemView){
+        public ratingViewHolder(@NonNull View itemView) {
             super(itemView);
             content_bewertung = itemView.findViewById(R.id.content_bewertung);
             content_freitextBewertung = itemView.findViewById(R.id.content_freitextBewertung);

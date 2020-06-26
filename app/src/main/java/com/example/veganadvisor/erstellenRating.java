@@ -74,9 +74,9 @@ public class erstellenRating extends Fragment {
                 newrating.setValue(ratingBar.getRating());
                 newrating.setuID(FAuth.getCurrentUser().getUid());
 
-               if(!newrating.getText().equals("") && newrating.getValue() != 0){
+                if (!newrating.getText().equals("") && newrating.getValue() != 0) {
 
-                   ratingRef.push().setValue(newrating);
+                    ratingRef.push().setValue(newrating);
 
                     Bundle bundle = new Bundle();
                     bundle.putString("name", restaurantName);
@@ -89,8 +89,7 @@ public class erstellenRating extends Fragment {
                     detailRestaurantFragment.setArguments(bundle);
                     FragmentManager manager = getFragmentManager();
                     manager.beginTransaction().replace(R.id.container_fragment, detailRestaurantFragment).commit();
-               }
-                else{
+                } else {
                     Toast toast = Toast.makeText(getActivity(), "Alle Felder müssen ausgefüllt sein!", Toast.LENGTH_SHORT);
                     toast.show();
                 }

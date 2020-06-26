@@ -147,7 +147,6 @@
             app:layout_constraintTop_toBottomOf="@id/edit_image_view" />
 
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

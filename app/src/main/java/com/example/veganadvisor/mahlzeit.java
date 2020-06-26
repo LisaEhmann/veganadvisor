@@ -7,9 +7,10 @@ public class mahlzeit {
     public double Preis;
     public int BewertungID;
 
-    public mahlzeit(){}
+    public mahlzeit() {
+    }
 
-    public mahlzeit(int ID, String Name, double Preis, int BewertungID){
+    public mahlzeit(int ID, String Name, double Preis, int BewertungID) {
         this.ID = ID;
         this.Name = Name;
         this.Preis = Preis;

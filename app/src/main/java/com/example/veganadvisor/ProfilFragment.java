@@ -31,12 +31,10 @@ import java.util.concurrent.Executor;
 
 public class ProfilFragment extends Fragment {
     Button resendCode, logoutbtn;
-    TextView textVerifyEmail, fullname, email;
+    TextView textVerifyEmail, username, email;
     String userID;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-
-
 
 
     @Nullable
@@ -46,12 +44,12 @@ public class ProfilFragment extends Fragment {
 
         logoutbtn = view.findViewById(R.id.profil_logout);
 
-        fAuth  = FirebaseAuth.getInstance();
+        fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
 
         //profil Ansicht
-        fullname = view.findViewById(R.id.profil_fullname);
+        username = view.findViewById(R.id.profil_fullname);
         email = view.findViewById(R.id.profil_email);
 
         DocumentReference documentReference = fStore.collection("users").document(userID);
@@ -59,7 +57,7 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 email.setText(documentSnapshot.getString("email"));
-                fullname.setText(documentSnapshot.getString("fullName"));
+                username.setText(documentSnapshot.getString("fullName"));
             }
         });
 

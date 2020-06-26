@@ -10,7 +10,6 @@ public class restaurant {
     private String bild;
 
 
-
     public restaurant() {
     }
 
@@ -53,7 +52,6 @@ public class restaurant {
     }
 
 
-
     public void setID(String ID) {
         this.ID = ID;
     }
@@ -73,7 +71,6 @@ public class restaurant {
     public void setBeschreibung(String beschreibung) {
         this.beschreibung = beschreibung;
     }
-
 
 
 }

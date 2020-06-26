@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registrierung"
-    android:background="@drawable/startscreen_without_title">
+    android:background="@drawable/startscreen_without_title"
+    tools:context=".Registrierung">
 
     <TextView
         android:id="@+id/register"
@@ -92,7 +92,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_email_adress" />
-
 
 
     <Button

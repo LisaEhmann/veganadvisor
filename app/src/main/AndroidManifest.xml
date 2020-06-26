@@ -12,10 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Login"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".Registrierung"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".Login"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".Registrierung"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".WelcomeScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

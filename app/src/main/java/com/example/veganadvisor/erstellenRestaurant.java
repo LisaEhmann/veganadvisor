@@ -67,7 +67,6 @@ public class erstellenRestaurant extends Fragment {
     private FirebaseAuth FAuth;
 
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -78,18 +77,18 @@ public class erstellenRestaurant extends Fragment {
         FAuth = FirebaseAuth.getInstance();
 
         //Elemente finden Erstelllen und Bewertung abgeben
-        edit_restaurant_name        = newrestaurant.findViewById(R.id.edit_restaurant_name);
+        edit_restaurant_name = newrestaurant.findViewById(R.id.edit_restaurant_name);
         edit_restaurant_description = newrestaurant.findViewById(R.id.edit_restaurant_description);
-        edit_adress                 = newrestaurant.findViewById(R.id.edit_adress);
-        edit_restaurant_opening     = newrestaurant.findViewById(R.id.edit_restaurant_opening);
-        edit_bewertung              = newrestaurant.findViewById(R.id.edit_bewertung);
-        btn_absenden                = newrestaurant.findViewById(R.id.edit_btn_absende);
-        ratingBar                   = newrestaurant.findViewById(R.id.edit_ratingBar);
+        edit_adress = newrestaurant.findViewById(R.id.edit_adress);
+        edit_restaurant_opening = newrestaurant.findViewById(R.id.edit_restaurant_opening);
+        edit_bewertung = newrestaurant.findViewById(R.id.edit_bewertung);
+        btn_absenden = newrestaurant.findViewById(R.id.edit_btn_absende);
+        ratingBar = newrestaurant.findViewById(R.id.edit_ratingBar);
         //Elemente finden Upload Image
-        mBTN_choose_file    = newrestaurant.findViewById(R.id.edit_choose_file_btn);
-        mImageView          = newrestaurant.findViewById(R.id.edit_image_view);
-        mStorageRef     = FirebaseStorage.getInstance().getReference();
-        mDatabaseRef    = FirebaseDatabase.getInstance().getReference("uploads");
+        mBTN_choose_file = newrestaurant.findViewById(R.id.edit_choose_file_btn);
+        mImageView = newrestaurant.findViewById(R.id.edit_image_view);
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
 
         btn_absenden.setOnClickListener(new View.OnClickListener() {
@@ -124,8 +123,7 @@ public class erstellenRestaurant extends Fragment {
         rating.setuID(FAuth.getCurrentUser().getUid());
 
 
-
-        if(!restaurant.getName().equals("") && !restaurant.getAdresse().equals("") && !restaurant.getBeschreibung().equals("") && !restaurant.getOpening().equals("") && !restaurant.getID().equals("") && !restaurant.getBeschreibung().equals("") && !rating.getText().equals("") && rating.getValue() != 0){
+        if (!restaurant.getName().equals("") && !restaurant.getAdresse().equals("") && !restaurant.getBeschreibung().equals("") && !restaurant.getOpening().equals("") && !restaurant.getID().equals("") && !restaurant.getBeschreibung().equals("") && !rating.getText().equals("") && rating.getValue() != 0) {
 
             ratingRef = FirebaseDatabase.getInstance().getReference().child("rating").child(restaurant.getID());
 
@@ -145,8 +143,7 @@ public class erstellenRestaurant extends Fragment {
             FragmentManager manager = getFragmentManager();
             manager.beginTransaction().replace(R.id.container_fragment, detailRestaurantFragment).commit();
 
-        }
-        else{
+        } else {
             Toast toast = Toast.makeText(getActivity(), "Alle Felder müssen ausgefüllt sein!", Toast.LENGTH_SHORT);
             toast.show();
         }
@@ -164,7 +161,7 @@ public class erstellenRestaurant extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if ( requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null){
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
             mImageUri = data.getData();
 
             uploadImage(mImageUri);

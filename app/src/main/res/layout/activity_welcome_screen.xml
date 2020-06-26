@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WelcomeScreenActivity"
-    android:background="@drawable/startscreen">
+    android:background="@drawable/startscreen"
+    tools:context=".WelcomeScreenActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

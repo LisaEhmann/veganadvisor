@@ -31,14 +31,14 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mEmail          = findViewById(R.id.login_email_adress);
-        mPassword       = findViewById(R.id.login_password);
-        mLoginBtn    = findViewById(R.id.login_btn);
-        mRegisterBtn       = findViewById(R.id.login_link_to_register);
-        progressBar     = findViewById(R.id.login_progressBar);
+        mEmail = findViewById(R.id.login_email_adress);
+        mPassword = findViewById(R.id.login_password);
+        mLoginBtn = findViewById(R.id.login_btn);
+        mRegisterBtn = findViewById(R.id.login_link_to_register);
+        progressBar = findViewById(R.id.login_progressBar);
 
         // Initialize Firebase Auth
-        mAuth           = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,15 +46,15 @@ public class Login extends AppCompatActivity {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
 
-                if(TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Es muss eine E-Mail Adresse eingegeben werden.");
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     mPassword.setError("Es muss ein Passwort eingegeben werden.");
                     return;
                 }
-                if(password.length() < 8){
+                if (password.length() < 8) {
                     mPassword.setError("Das Passwort ist zu kurz (min. 8 Zeichen");
                     return;
                 }
@@ -65,7 +65,7 @@ public class Login extends AppCompatActivity {
                 mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(Login.this, "Sie sind eingeloggt.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         } else {
@@ -78,11 +78,11 @@ public class Login extends AppCompatActivity {
         });
 
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Registrierung.class));
-            }
-        }
+                                            @Override
+                                            public void onClick(View v) {
+                                                startActivity(new Intent(getApplicationContext(), Registrierung.class));
+                                            }
+                                        }
         );
 
     }

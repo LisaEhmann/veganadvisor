@@ -45,20 +45,20 @@ public class Registrierung extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrierung);
 
-        mFullName       = findViewById(R.id.register_fullName);
-        mEmail          = findViewById(R.id.register_email_adress);
-        mPassword       = findViewById(R.id.register_password);
-        mRegisterBtn    = findViewById(R.id.register_btn);
-        mLoginBtn       = findViewById(R.id.register_link_to_login);
-        progressBar     = findViewById(R.id.register_progressBar);
+        mFullName = findViewById(R.id.register_fullName);
+        mEmail = findViewById(R.id.register_email_adress);
+        mPassword = findViewById(R.id.register_password);
+        mRegisterBtn = findViewById(R.id.register_btn);
+        mLoginBtn = findViewById(R.id.register_link_to_login);
+        progressBar = findViewById(R.id.register_progressBar);
 
 
         // Initialize Firebase Auth
-        mAuth           = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         mFirebaseStore = FirebaseFirestore.getInstance();
 
 
-        if(mAuth.getCurrentUser() != null) {
+        if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
             finish();
         }
@@ -66,19 +66,19 @@ public class Registrierung extends AppCompatActivity {
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email    = mEmail.getText().toString().trim();
+                final String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
                 final String fullName = mFullName.getText().toString();
 
-                if(TextUtils.isEmpty(email)){
+                if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Es muss eine E-Mail Adresse eingegeben werden.");
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
+                if (TextUtils.isEmpty(password)) {
                     mPassword.setError("Es muss ein Passwort eingegeben werden.");
                     return;
                 }
-                if(password.length() < 8){
+                if (password.length() < 8) {
                     mPassword.setError("Das Passwort ist zu kurz (min. 8 Zeichen");
                     return;
                 }
@@ -88,7 +88,7 @@ public class Registrierung extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             //send verification Link
                             FirebaseUser fuser = mAuth.getCurrentUser();
                             fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -99,10 +99,9 @@ public class Registrierung extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "on Failure: E-Mail wurde nicht gesendet. "+ e.toString());
+                                    Log.d(TAG, "on Failure: E-Mail wurde nicht gesendet. " + e.toString());
                                 }
                             });
-
 
 
                             Toast.makeText(Registrierung.this, "Account angelegt.", Toast.LENGTH_SHORT).show();
@@ -119,12 +118,11 @@ public class Registrierung extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "on Failure: " +e.toString());
+                                    Log.d(TAG, "on Failure: " + e.toString());
                                 }
                             });
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        }
-                        else {
+                        } else {
                             Toast.makeText(Registrierung.this, "ERROR ! " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
@@ -134,11 +132,11 @@ public class Registrierung extends AppCompatActivity {
         });
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), Login.class));
-            }
-        }
+                                         @Override
+                                         public void onClick(View v) {
+                                             startActivity(new Intent(getApplicationContext(), Login.class));
+                                         }
+                                     }
         );
     }
 }
