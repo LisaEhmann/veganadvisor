@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:hint="User Name"
+        android:hint="Username"
         android:textColor="@color/grün_dunkel"
         android:textColorHint="@color/grün_mittel"
         android:textSize="20dp"
